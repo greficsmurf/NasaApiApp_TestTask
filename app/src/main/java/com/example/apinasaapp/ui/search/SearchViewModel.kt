@@ -16,7 +16,8 @@ class SearchViewModel @Inject constructor(
     }.cachedIn(viewModelScope)
 
     fun setSearchText(text: String) {
-        _searchText.value = text
+        if(_searchText.value != text && text.isNotBlank())
+            _searchText.postValue(text)
     }
 
     val searchText: String

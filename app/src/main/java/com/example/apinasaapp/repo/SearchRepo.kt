@@ -9,11 +9,9 @@ import com.example.apinasaapp.api.NasaApiService
 import com.example.apinasaapp.datasource.ImageVideoPagingSource
 import com.example.apinasaapp.models.ImageVideoItem
 import com.example.apinasaapp.models.mappers.toDomainModel
-import com.example.apinasaapp.vo.NetworkDatabaseResource
 import com.example.apinasaapp.vo.NetworkResource
 import com.example.apinasaapp.vo.Resource
 import io.reactivex.rxjava3.core.Flowable
-import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 import javax.inject.Singleton

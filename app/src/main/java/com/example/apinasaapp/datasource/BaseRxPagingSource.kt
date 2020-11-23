@@ -13,11 +13,19 @@ abstract class BaseRxPagingSource <T> : RxPagingSource<Int, T>() where T: Any{
 
         return fetch(nextPage)
             .map {
-                LoadResult.Page(
-                    data = it,
-                    prevKey = if (nextPage == 1) null else nextPage - 1,
-                    nextKey = nextPage + 1
-                ) as LoadResult<Int, T>
+                if(it.isEmpty()){
+                    LoadResult.Page(
+                            data = it,
+                            prevKey = if (nextPage == 1) null else nextPage - 1,
+                            nextKey = null
+                    ) as LoadResult<Int, T>
+                }else{
+                    LoadResult.Page(
+                            data = it,
+                            prevKey = if (nextPage == 1) null else nextPage - 1,
+                            nextKey = nextPage + 1
+                    ) as LoadResult<Int, T>
+                }
             }
             .onErrorReturn {
                 LoadResult.Error(it)
